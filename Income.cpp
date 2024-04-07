@@ -1,25 +1,21 @@
-//
-// Created by G_I on 28.03.2024.
-//
+#include "income.h"
+#include <iostream>
 
-#include "Income.h"
-class Income {
-private:
-    float amount;
-    std::string source;
+Income::Income(float amt, const std::string& src)
+        : amount(amt), source(src) {
+    std::cout << "Income created." << std::endl;
+}
 
-public:
-    // Конструктор
-    Income(float amt, const std::string& src)
-            : amount(amt), source(src) {
-        std::cout << "Income created." << std::endl;
-    }
+Income::Income() : Income(0.0, "") {}
 
-    // Перевантажений конструктор
-    Income() : Income(0.0, "") {}
+Income::~Income() {
+    std::cout << "Income destroyed." << std::endl;
+}
 
-    // Деструктор
-    ~Income() {
-        std::cout << "Income destroyed." << std::endl;
-    }
-};
+float Income::getAmount() const {
+    return amount;
+}
+
+std::string Income::getSource() const {
+    return source;
+}
