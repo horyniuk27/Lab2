@@ -11,5 +11,12 @@ int main() {
     budget.addExpense(exp1);
     budget.addIncome(inc1);
 
+    // Друкуємо витрати та доходи
+    budget.printExpenses();
+    budget.printIncomes();
+
+    // Перевірка створених об'єктів
+    std::cout << "Number of BudgetTracker instances: " << BudgetTracker::getInstances() << std::endl;
+
     return 0;
 }
