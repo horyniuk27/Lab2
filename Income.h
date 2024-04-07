@@ -17,6 +17,10 @@ public:
 
     // Деструктор
     ~Income();
+
+    // Методи доступу до полів класу
+    float getAmount() const;
+    std::string getSource() const;
 };
 
 #endif // INCOME_H
