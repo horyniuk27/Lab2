@@ -22,6 +22,15 @@ public:
 
     // Метод для додавання доходу
     void addIncome(const Income& inc);
+
+    // Метод для виведення витрат
+    void printExpenses() const;
+
+    // Метод для виведення доходів
+    void printIncomes() const;
+
+    // Статичний метод для отримання кількості створених об'єктів
+    static int getInstances();
 };
 
 #endif // BUDGETTRACKER_H
