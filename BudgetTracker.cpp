@@ -1,33 +1,39 @@
-//
-// Created by G_I on 28.03.2024.
-//
+#include "budgettracker.h"
+#include <iostream>
 
-#include "BudgetTracker.h"
-#include <vector>
+// Ініціалізація статичного поля
+int BudgetTracker::instances = 0;
 
-class BudgetTracker {
-private:
-    std::vector<Expense> expenses;
-    std::vector<Income> incomes;
+BudgetTracker::BudgetTracker() {
+    instances++;
+    std::cout << "BudgetTracker created." << std::endl;
+}
 
-public:
-    // Конструктор за замовчуванням
-    BudgetTracker() {
-        std::cout << "BudgetTracker created." << std::endl;
+BudgetTracker::~BudgetTracker() {
+    instances--;
+    std::cout << "BudgetTracker destroyed." << std::endl;
+}
+
+void BudgetTracker::addExpense(const Expense& exp) {
+    expenses.push_back(exp);
+}
+
+void BudgetTracker::addIncome(const Income& inc) {
+    incomes.push_back(inc);
+}
+
+void BudgetTracker::printExpenses() const {
+    for (const Expense& exp : expenses) {
+        std::cout << "Amount: " << exp.getAmount() << ", Category: " << exp.getCategory() << ", Description: " << exp.getDescription() << std::endl;
     }
+}
 
-    // Деструктор
-    ~BudgetTracker() {
-        std::cout << "BudgetTracker destroyed." << std::endl;
+void BudgetTracker::printIncomes() const {
+    for (const Income& inc : incomes) {
+        std::cout << "Amount: " << inc.getAmount() << ", Source: " << inc.getSource() << std::endl;
     }
+}
 
-    // Метод для додавання витрати
-    void addExpense(const Expense& exp) {
-        expenses.push_back(exp);
-    }
-
-    // Метод для додавання доходу
-    void addIncome(const Income& inc) {
-        incomes.push_back(inc);
-    }
-};
+int BudgetTracker::getInstances() {
+    return instances;
+}
