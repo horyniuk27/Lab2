@@ -1,29 +1,36 @@
-//
-// Created by G_I on 28.03.2024.
-//
-
-#include "Expense.h"
+#include "expense.h"
 #include <iostream>
-#include <string>
 
-class Expense {
-private:
-    float amount;
-    std::string category;
-    std::string description;
+Expense::Expense(float amt, const std::string& cat, const std::string& desc)
+        : amount(amt), category(cat), description(desc) {
+    std::cout << "Expense created." << std::endl;
+}
 
-public:
-    // Конструктор
-    Expense(float amt, const std::string& cat, const std::string& desc)
-            : amount(amt), category(cat), description(desc) {
-        std::cout << "Expense created." << std::endl;
-    }
+Expense::Expense() : Expense(0.0, "", "") {}
 
-    // Перевантажений конструктор
-    Expense() : Expense(0.0, "", "") {}
+Expense::~Expense() {
+    std::cout << "Expense destroyed." << std::endl;
+}
 
-    // Деструктор
-    ~Expense() {
-        std::cout << "Expense destroyed." << std::endl;
-    }
-};
+float Expense::getAmount() const {
+    return amount;
+}
+
+std::string Expense::getCategory() const {
+    return category;
+}
+
+std::string Expense::getDescription() const {
+    return description;
+}
+
+Expense Expense::operator-() const {
+    return Expense(-amount, category, description);
+}
+
+Expense Expense::operator+(const Expense& other) const {
+    return Expense(amount + other.amount, category + " and " + other.category, description + " and " + other.description);
+}
+
+std::ostream& operator<<(std::ostream& os, const Expense& exp) {
+    os <<
