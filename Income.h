@@ -1,4 +1,3 @@
-// Income.h
 #ifndef INCOME_H
 #define INCOME_H
 
@@ -15,6 +14,8 @@ public:
     ~Income();
     float getAmount() const;
     std::string getSource() const;
+    virtual void virtualFunction1() {}
+    virtual void virtualFunction2() {}
 };
 
 #endif // INCOME_H
