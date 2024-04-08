@@ -1,4 +1,3 @@
-// Expense.h
 #ifndef EXPENSE_H
 #define EXPENSE_H
 
@@ -20,7 +19,8 @@ public:
     Expense operator-() const;
     Expense operator+(const Expense& other) const;
     friend std::ostream& operator<<(std::ostream& os, const Expense& exp);
-    friend std::istream& operator>>(std::istream& is, Expense& exp);
+    virtual void virtualFunction1() {}
+    virtual void virtualFunction2() {}
 };
 
 #endif // EXPENSE_H
