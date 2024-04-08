@@ -1,4 +1,3 @@
-// Income.cpp
 #include "income.h"
 #include <iostream>
 
