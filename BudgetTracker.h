@@ -13,12 +13,17 @@ private:
 
 public:
     BudgetTracker();
-    ~BudgetTracker();
+    virtual ~BudgetTracker();
+    virtual void virtualFunction1();
+    virtual void virtualFunction2();
     void addExpense(const Expense& exp);
     void addIncome(const Income& inc);
     void printExpenses() const;
     void printIncomes() const;
     static int getInstances();
+
+    [[maybe_unused]] virtual void pureVirtualFunction() = 0;
+    virtual void someFunction3() final;
 };
 
 #endif // BUDGETTRACKER_H
