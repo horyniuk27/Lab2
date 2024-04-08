@@ -33,4 +33,6 @@ Expense Expense::operator+(const Expense& other) const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Expense& exp) {
-    os <<
+    os << "Amount: " << exp.getAmount() << ", Category: " << exp.getCategory() << ", Description: " << exp.getDescription();
+    return os;
+}
