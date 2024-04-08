@@ -1,7 +1,6 @@
 #include "budgettracker.h"
 #include <iostream>
 
-// Ініціалізація статичного поля
 int BudgetTracker::instances = 0;
 
 BudgetTracker::BudgetTracker() {
