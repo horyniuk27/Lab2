@@ -24,6 +24,7 @@ public:
 
     [[maybe_unused]] virtual void pureVirtualFunction() = 0;
     virtual void someFunction3() final;
+    // Add more methods as needed
 };
 
 #endif // BUDGETTRACKER_H
